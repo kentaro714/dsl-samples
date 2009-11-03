@@ -48,4 +48,8 @@ public class StateMachine {
 			return;
 		}
 	}
+
+	public State getStart() {
+		return start;
+	}
 }
