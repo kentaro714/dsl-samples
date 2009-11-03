@@ -6,6 +6,14 @@ import kentaro714.model.fsm.StateMachine;
 
 public class Controller {
 	private State currentState;
+	public State getCurrentState() {
+		return currentState;
+	}
+
+	public void setCurrentState(State currentState) {
+		this.currentState = currentState;
+	}
+
 	private StateMachine machine;
 	
 	protected CommandChannel commandsChannel;

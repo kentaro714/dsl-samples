@@ -7,7 +7,6 @@ import java.util.List;
 public class StateMachine {
 	
 	private State start;
-//	private Collection<Event> resetEvents = new ArrayList<Event>();
 	
 	public StateMachine(State start) {
 		this.start = start;
@@ -20,7 +19,6 @@ public class StateMachine {
 	}
 	
 	public void addResetEvents(Event... events) {
-//		for (Event e : events) resetEvents.add(e);
 		for (Event e : events) addResetEvent_byAddingTransitions(e);
 	}
 	
@@ -31,7 +29,6 @@ public class StateMachine {
 	}
 	
 	public boolean isResetEvent(String eventCode) {
-//		return resetEventCodes().contains(eventCode);
 		for (State s : getStates()) {
 			if (s.hasTransition(eventCode) && s.targetState(eventCode).equals(start)) {
 				return true;
@@ -39,12 +36,6 @@ public class StateMachine {
 		}
 		return false;
 	}
-
-//	private List<String> resetEventCodes() {
-//		List<String> result = new ArrayList<String>();
-//		for (Event e : resetEvents) result.add(e.getCode());
-//		return result;
-//	}
 
 	private void gatherForwards(Collection<State> result, State start) {
 		if (start == null) return;
