@@ -1,4 +1,4 @@
-package kentaro714.model.fsm;
+package kentaro714.model.statemachine;
 
 public abstract class AbstractEvent {
 	private String name, code;

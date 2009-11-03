@@ -1,4 +1,4 @@
-package kentaro714.model.fsm;
+package kentaro714.model.statemachine;
 
 import java.util.ArrayList;
 import java.util.Collection;

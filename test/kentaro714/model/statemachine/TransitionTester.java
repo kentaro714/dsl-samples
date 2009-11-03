@@ -1,4 +1,8 @@
-package kentaro714.model.fsm;
+package kentaro714.model.statemachine;
+
+import kentaro714.model.statemachine.Event;
+import kentaro714.model.statemachine.State;
+import kentaro714.model.statemachine.StateMachine;
 
 import org.junit.Test;
 

@@ -1,6 +1,12 @@
-package kentaro714.model.fsm;
+package kentaro714.model.statemachine;
 
 import junit.framework.Assert;
+import kentaro714.model.statemachine.Command;
+import kentaro714.model.statemachine.CommandChannel;
+import kentaro714.model.statemachine.Controller;
+import kentaro714.model.statemachine.Event;
+import kentaro714.model.statemachine.State;
+import kentaro714.model.statemachine.StateMachine;
 
 import org.junit.Before;
 import org.junit.Test;

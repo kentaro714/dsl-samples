@@ -1,8 +1,8 @@
-package kentaro714.model.fsm;
+package kentaro714.model.statemachine;
 
-import kentaro714.model.fsm.CommandChannel;
-import kentaro714.model.fsm.State;
-import kentaro714.model.fsm.StateMachine;
+import kentaro714.model.statemachine.CommandChannel;
+import kentaro714.model.statemachine.State;
+import kentaro714.model.statemachine.StateMachine;
 
 public class Controller {
 	private State currentState;
