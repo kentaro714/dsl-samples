@@ -14,6 +14,7 @@ abstract public class AbstractStateTestLib {
 		controller.handle(e.getCode());
 	}
 	
+	//-------- Custom Assertion method ----------
 	protected void assertCurrentState(State s) {
 		Assert.assertEquals(s, controller.getCurrentState());
 	}

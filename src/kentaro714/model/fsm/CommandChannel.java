@@ -6,4 +6,8 @@ public class CommandChannel {
 		
 	}
 
+	public void clearHistory() {
+		// TODO Auto-generated method stub
+	}
+
 }
