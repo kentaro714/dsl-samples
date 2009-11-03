@@ -1,4 +1,4 @@
-package kentaro714.application.portion.domain;
+package kentaro714.model.dn;
 
 public class SubstanceElementData {
 	private int fastestTime;
