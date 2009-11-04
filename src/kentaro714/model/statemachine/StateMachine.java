@@ -24,7 +24,7 @@ public class StateMachine {
 	
 	private void addResetEvent_byAddingTransitions(Event e) {
 		for (State s : getStates()) {
-			if (!s.hasTransition(e.getCode())) s.addTransition(e, start);
+			if (!s.hasTransition(e.getCode())) s.addTransition(e, null, start);
 		}
 	}
 	

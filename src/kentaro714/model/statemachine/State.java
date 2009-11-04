@@ -7,18 +7,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kentaro714.util.Pair;
+
 public class State {
 	private String name;
 
 	private List<Command> actions = new ArrayList<Command>();
-	private Map<String, Transition> transitions = new HashMap<String, Transition>();
+	private Map<Pair<String, Object>, Transition> transitions = new HashMap<Pair<String, Object>,Transition>();
+	private Map<String, Guard> guards = new HashMap<String, Guard>(); 
 	
 	public State(String name) {
 		this.name = name;
 	}
 
-	public void addTransition(Event event, State targetState) {
-		transitions.put(event.getCode(), new Transition(this, event, targetState));
+	public void addTransition(Event event, Object guardResult, State targetState) {
+		transitions.put(Pair.createPair(event.getCode(), guardResult), new Transition(this, event, targetState));
+	}
+	
+	public void addGuard(Event event, Guard guard) {
+		guards.put(event.getCode(), guard);
 	}
 	
 	public void addAction(Command command) {
@@ -55,6 +62,14 @@ public class State {
 		return Collections.unmodifiableList(actions);
 	}
 	
+	public Guard getGuard(String eventCode) {
+		return guards.get(eventCode);
+	}
+	
+	public Transition getTransition(String eventCode, Object result) {
+		return transitions.get(Pair.createPair(eventCode, result));
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,5 +94,5 @@ public class State {
 			return false;
 		return true;
 	}
-	
+
 }

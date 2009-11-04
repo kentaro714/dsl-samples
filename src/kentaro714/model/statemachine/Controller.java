@@ -28,6 +28,12 @@ public class Controller {
 	}
 	
 	public void handle(String eventCode) {
+		Object result = evalGuard(currentState.getGuard(eventCode));
+		Transition transition = currentState.getTransition(eventCode, result);
+		if (transition == null) {
+			throw new RuntimeException();
+		}
+		// FIXME 未検証
 		if (currentState.hasTransition(eventCode)) {
 			transitionTo(currentState.targetState(eventCode));
 		} else if (machine.isResetEvent(eventCode)) {
@@ -36,6 +42,13 @@ public class Controller {
 		// 知らないイベントは無視
 	}
 
+	private Object evalGuard(Guard guard) {
+		if (guard == null) {
+			return null;
+		}
+		return guard.eval();
+	}
+	
 	private void transitionTo(State target) {
 		currentState = target;
 		currentState.executeActions(commandsChannel);
