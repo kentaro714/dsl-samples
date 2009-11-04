@@ -24,6 +24,10 @@ public class State {
 		transitions.put(Pair.createPair(event.getCode(), guardResult), new Transition(this, event, targetState));
 	}
 	
+	public void addTransition(Event event, State targetState) {
+		transitions.put(Pair.createPair(event.getCode(), null), new Transition(this, event, targetState));
+	}
+	
 	public void addGuard(Event event, Guard guard) {
 		guards.put(event.getCode(), guard);
 	}
